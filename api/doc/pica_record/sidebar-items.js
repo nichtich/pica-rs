@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ParsePicaError"],"mod":["io","parser"],"struct":["ByteRecord","Field","Occurrence","Record","StringRecord","Subfield","Tag"],"type":["FieldMut","FieldRef","OccurrenceMut","OccurrenceRef","RecordMut","RecordRef","SubfieldMut","SubfieldRef","TagMut","TagRef"]};

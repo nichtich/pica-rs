@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Error","Level","Selector"],"mod":["matcher"],"struct":["ByteRecord","Field","GzipWriter","Occurrence","Outcome","ParsePathError","ParsePicaError","Path","PlainWriter","Reader","ReaderBuilder","Selectors","StringRecord","Subfield","Tag","WriterBuilder"],"trait":["PicaWriter"],"type":["Result"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["SingletonMatcher","SubfieldMatcher"],"fn":["parse_subfield_matcher"],"struct":["CardinalityMatcher","ExistsMatcher","InMatcher","RegexMatcher","RelationMatcher"],"trait":["Matcher"]};

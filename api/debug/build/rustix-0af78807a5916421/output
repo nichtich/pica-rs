@@ -1,0 +1,13 @@
+cargo:rerun-if-changed=build.rs
+cargo:rustc-cfg=rustc_attrs
+cargo:rustc-cfg=linux_raw
+cargo:rustc-cfg=core_intrinsics
+cargo:rerun-if-changed=src/backend/linux_raw/arch/outline/debug/librustix_outline_x86_64.a
+cargo:rustc-link-search=src/backend/linux_raw/arch/outline/debug
+cargo:rustc-link-lib=static=rustix_outline_x86_64
+cargo:rustc-cfg=linux_like
+cargo:rerun-if-env-changed=CARGO_CFG_RUSTIX_USE_EXPERIMENTAL_ASM
+cargo:rerun-if-env-changed=CARGO_CFG_RUSTIX_USE_LIBC
+cargo:rerun-if-env-changed=CARGO_FEATURE_USE_LIBC
+cargo:rerun-if-env-changed=CARGO_FEATURE_RUSTC_DEP_OF_STD
+cargo:rerun-if-env-changed=CARGO_CFG_MIRI

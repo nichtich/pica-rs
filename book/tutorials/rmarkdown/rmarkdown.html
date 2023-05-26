@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Verwendung in RMarkdown - pica-rs</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../custom.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Einführung</a></li><li class="chapter-item expanded affix "><li class="part-title">Benutzerhandbuch</li><li class="chapter-item expanded "><a href="../../guide/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Kommandos</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../guide/cmds/cat.html"><strong aria-hidden="true">2.1.</strong> cat</a></li><li class="chapter-item expanded "><a href="../../guide/cmds/completions.html"><strong aria-hidden="true">2.2.</strong> completions</a></li><li class="chapter-item expanded "><a href="../../guide/cmds/count.html"><strong aria-hidden="true">2.3.</strong> count</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> filter</div></li><li class="chapter-item expanded "><a href="../../guide/cmds/frequency.html"><strong aria-hidden="true">2.5.</strong> frequency</a></li><li class="chapter-item expanded "><a href="../../guide/cmds/invalid.html"><strong aria-hidden="true">2.6.</strong> invalid</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.7.</strong> partition</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.8.</strong> print</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.9.</strong> sample</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.10.</strong> select</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.11.</strong> slice</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.12.</strong> split</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.13.</strong> json</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.14.</strong> xml</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">Tutorials</li><li class="chapter-item expanded "><a href="../../tutorials/beginner-tutorial.html"><strong aria-hidden="true">3.</strong> Beginner Tutorial</a></li><li class="chapter-item expanded "><a href="../../tutorials/rmarkdown/rmarkdown.html" class="active"><strong aria-hidden="true">4.</strong> Verwendung in RMarkdown</a></li><li class="chapter-item expanded affix "><li class="part-title">Entwicklerdokumentation</li><li class="chapter-item expanded "><a href="../../referenz/index.html"><strong aria-hidden="true">5.</strong> Referenz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../referenz/matcher.html"><strong aria-hidden="true">5.1.</strong> Matcher</a></li><li class="chapter-item expanded "><a href="../../referenz/occurrence.html"><strong aria-hidden="true">5.2.</strong> Occurrence</a></li><li class="chapter-item expanded "><a href="../../referenz/subfield.html"><strong aria-hidden="true">5.3.</strong> Subfield</a></li><li class="chapter-item expanded "><a href="../../referenz/tag.html"><strong aria-hidden="true">5.4.</strong> Tag</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">pica-rs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="verwendung-von-pica-rs-zur-datenanalyse-mit-rmarkdown"><a class="header" href="#verwendung-von-pica-rs-zur-datenanalyse-mit-rmarkdown">Verwendung von pica-rs zur Datenanalyse mit RMarkdown</a></h1>
+<p>Beispielhaft wird in diesem Tutorial demonstriert, wie das Toolkit
+pica-rs für Datenanalysen mit
+<a href="https://rmarkdown.rstudio.com/">RMarkdown</a> eingesetzt werden kann.
+Datenabfrage mit <code>pica-rs</code> und Datenanalyse mit <code>R</code> können so in einem
+gemeinsamen Dokument kombiniert werden.</p>
+<pre><code class="language-r"># Setup: 
+# Globale Einstellungen für das Ausführen von Code-Blöcken durch knitr
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, dev=&quot;jpeg&quot;, dpi = 300, fig.path = &quot;plots/&quot;)
+# Laden von R-Paketen
+library(tidyverse) # beinhaltet u.a. readr, dplyr und ggplot2
+</code></pre>
+<h2 id="datenabfrage"><a class="header" href="#datenabfrage">Datenabfrage</a></h2>
+<p>Zunächst erzeugen wir mit folgender Pica-Abfrage von der Datei
+<code>testdaten.dat</code> eine CSV-Datei mit allen Tupeln aus Titel-idn und
+GND-Entität-idn. Um die GND-Entitäten abzurufen, die mit einem
+Titeldatensatz verknüpft sind, muss das Listenfeld <code>041A</code> mit
+<code>pica select</code> ausgelesen werden. Sind mehrere GND-Entitäten in einem
+Titel-Datensatz vohanden, expandiert <code>pica select</code> diese automatisch,
+d.h. im Output <code>title_idn_gnd_idn.csv</code> kommen auch IDN-Nummern von
+Titeln ggf. mehrfach vor (je eine Zeile pro GND-Entität).</p>
+<pre><code class="language-bash">pica select -s --no-empty-columns -H &quot;idn_titel, idn_sw&quot;  &quot;003@.0,041A/*.9&quot; \
+  ../testdaten.dat  -o title_idn_gnd_idn.csv 
+</code></pre>
+<p>Die Datei <code>title_idn_gnd_idn.csv</code> kann ggf. auch nur temporär erzeugt
+werden, wenn ein Zwischenspeichern des Outputs von <code>pica-rs</code>nicht
+gewünscht ist. Das Einlesen der Date in R erfolgt über die üblichen
+Funktionen, z.B. aus dem <code>tidyverse</code>-Unterpaket <code>readr</code>.</p>
+<pre><code class="language-r">title_idn_gnd_idn &lt;- read_csv(&quot;title_idn_gnd_idn.csv&quot;, 
+                              col_types = list(
+                                idn_titel = col_factor(),
+                                idn_sw = col_factor()))
+</code></pre>
+<h2 id="datenanalyse"><a class="header" href="#datenanalyse">Datenanalyse</a></h2>
+<p>Wir wollen die abgefragten Daten im Folgenden beispielhaft analysieren:
+Zunächst erzeugen wir eine zusammenfassende Zählstatistik:</p>
+<pre><code class="language-r">count_summary &lt;- title_idn_gnd_idn %&gt;% 
+  summarise(
+    n_title = n_distinct(idn_titel), 
+    n_terms = n_distinct(idn_sw)
+    )
+</code></pre>
+<p>In dem so erzeugten Datensatz gibt es 245 verschiedene GND-Entitäten,
+die an mindestens einen von 103 verschiedenen Titel-Datensätzen vergeben
+wurden.</p>
+<p>Als nächstes beantworten wir die Frage, wie viele GND-Entitäten pro
+Titel im Durchschnitt verwendet werden:</p>
+<pre><code class="language-r">sw_per_title &lt;- title_idn_gnd_idn %&gt;% 
+  group_by(idn_titel) %&gt;% 
+  summarise(n_sw = n())
+
+card_d &lt;- sw_per_title %&gt;% 
+  summarise(
+    n_title = n(), 
+    avg_count = sum(n_sw)/n_title
+    ) %&gt;% 
+  pull(avg_count)
+</code></pre>
+<p>Im Mittel liegen 2.77 GND-Entitäten pro Titel vor.</p>
+<p>Wir wollen nun die IDN-Nummern der am häufigsten verwendeten
+GND-Entitäten ausgeben:</p>
+<pre><code class="language-r">gnd_term_freq &lt;- title_idn_gnd_idn %&gt;% 
+  group_by(idn_sw) %&gt;% 
+  summarise(freq = n()) %&gt;% 
+  arrange(desc(freq))
+
+head(gnd_term_freq, n = 10) %&gt;% 
+  knitr::kable()
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">idn_sw</th><th style="text-align: right">freq</th></tr></thead><tbody>
+<tr><td style="text-align: left">040118827</td><td style="text-align: right">10</td></tr>
+<tr><td style="text-align: left">040305503</td><td style="text-align: right">5</td></tr>
+<tr><td style="text-align: left">040538818</td><td style="text-align: right">4</td></tr>
+<tr><td style="text-align: left">041245113</td><td style="text-align: right">3</td></tr>
+<tr><td style="text-align: left">041248538</td><td style="text-align: right">3</td></tr>
+<tr><td style="text-align: left">041879635</td><td style="text-align: right">3</td></tr>
+<tr><td style="text-align: left">040509265</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">040013073</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">118636405</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">040526925</td><td style="text-align: right">2</td></tr>
+</tbody></table>
+</div>
+<h2 id="datenvisualisierung"><a class="header" href="#datenvisualisierung">Datenvisualisierung</a></h2>
+<p>Über alle Schlagwörter betrachtet sieht die Verteilung der
+GND-Entitäten-Verwendung wie folgt aus:</p>
+<pre><code class="language-r">g &lt;- ggplot(gnd_term_freq, aes(x = freq)) + 
+  geom_histogram(aes(y = (..count..)/sum(..count..)), binwidth = 1) + 
+  scale_y_continuous(labels = scales::percent, limits = c(0,1)) + 
+  scale_x_continuous(breaks = c(0,2,4,6,8,10)) + 
+  xlab(&quot;Häufigkeit GND-Entitäten-Verwendung&quot;) + 
+  ylab(&quot;Anteil an allen GND-Entität&quot;) + 
+  ggtitle(&quot;Verteilung GND-Entitäten-Verwendung&quot;)
+
+g
+</code></pre>
+<p><img src="plots/term_dist-1.jpeg" alt="" /></p>
+<p>Das Histogramm zeigt, dass die meisten GND-Entitäten nur einmal
+verwendet werden. Einzelne Terme werden aber auch bis zu 10-mal
+verwendet.</p>
+<p>Eine andere Visualisierungsform des gleichen Sachverhalts ist Folgende:</p>
+<pre><code class="language-r">gnd_term_freq &lt;- gnd_term_freq %&gt;%
+  mutate(index = 1:n())
+
+ggplot(gnd_term_freq, aes(x = index, y = freq)) +
+    geom_point() +
+    scale_y_log10() +
+    ylab(&quot;Häufigkeit je GND-Entität&quot;) +
+    xlab(&quot;Index GND-Entitäten (sortiert nach Häufigkeit)&quot;) + 
+    ggtitle(&quot;Long-Tail Darstellung&quot;)
+</code></pre>
+<p><img src="plots/plot_freq_-1.jpeg" alt="" /></p>
+<h2 id="dieses-tutorial-selbst-ausführen"><a class="header" href="#dieses-tutorial-selbst-ausführen">Dieses Tutorial selbst ausführen</a></h2>
+<p>Um das hier vorgestellte Tutorial selbst auszuführen, stehen im
+offiziellen github-Repository des Toolkits pica-rs die<br />
+<a href="https://github.com/deutsche-nationalbibliothek/pica-rs/blob/main/docs/book/src/de/tutorials/rmarkdown/rmarkdown.rmd">.rmd-Quelldatei</a>
+sowie ein <a href="https://github.com/deutsche-nationalbibliothek/pica-rs/blob/main/docs/book/src/de/tutorials/testdaten.dat">Testdatensatz im PICA+
+Format</a>
+für dieses Tutorial zum Download zur Verfügung.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../tutorials/beginner-tutorial.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../referenz/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../tutorials/beginner-tutorial.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../referenz/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

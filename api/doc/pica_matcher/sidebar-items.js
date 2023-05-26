@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["OccurrenceMatcher","ParseMatcherError","TagMatcher"],"mod":["field_matcher","parser","subfield_matcher"],"struct":["MatcherOptions","RecordMatcher"]};

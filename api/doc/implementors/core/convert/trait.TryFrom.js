@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"pica_record":[["impl&lt;'a&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html\" title=\"trait core::convert::TryFrom\">TryFrom</a>&lt;<a class=\"struct\" href=\"pica_record/struct.ByteRecord.html\" title=\"struct pica_record::ByteRecord\">ByteRecord</a>&lt;'a&gt;&gt; for <a class=\"struct\" href=\"pica_record/struct.StringRecord.html\" title=\"struct pica_record::StringRecord\">StringRecord</a>&lt;'a&gt;"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
