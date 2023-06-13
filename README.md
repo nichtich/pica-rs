@@ -75,23 +75,24 @@ $ pica cat -s -o DUMP12.dat DUMP1.dat DUMP2.dat.gz
 The `convert` command can be used to convert PICA+ to the following
 formats:
 
+* Normalized PICA+ (`plus`, the default format)
 * Binary PICA (`binary`)
 * PICA Import format (`import`)
 * PICA JSON (`json`)
 * Humand-readable PICA+ (`plain`)
-* PICA+ (`plus`)
 * PICA-XML (`xml`)
 
-> :warning: At the moment only PICA+ is supported as input format.
+> :warning: At the moment only Normalized PICA+ is supported as input format.
 > Reading from other formats will be added later.
 
 Examples:
 
 ```bash
+$ pica convert --from plus --to plus DUMP.dat -o dump.dat.gz
+$ pica convert DUMP.dat -o dump.dat.gz   # equivalent
 $ pica convert --from plus --to binary DUMP.dat.gz -o dump.bin
 $ pica convert --from plus --to json DUMP.dat.gz -o dump.json
 $ pica convert --from plus --to plain DUMP.dat.gz -o dump.plain
-$ pica convert --from plus --to plus DUMP.dat.gz -o dump.dat
 $ pica convert --from plus --to xml DUMP.dat.gz -o dump.xml
 ```
 
